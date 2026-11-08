@@ -19,7 +19,37 @@
 | **Key call** | Swapped the live savings view for alerts: nothing else matters if the manager never sees the event |
 | **Headline metrics** | Participation, performance, fewer payment disputes and satisfaction (product); renewal (business) |
 
-**Contents:** [Context](#context) · [Users](#users) · [Problem statement](#problem-statement) · [Validating the problem](#validating-the-problem) · [Edge cases and acceptance criteria](#edge-cases-and-acceptance-criteria) · [Version one scope](#version-one-scope) · [Trade-offs](#trade-offs) · [Security and data](#security-and-data) · [Success metrics](#success-metrics) · [Launch plan](#launch-plan) · [Go-to-market](#go-to-market) · [Workflow: before and after](#workflow-before-and-after) · [What this case demonstrates](#what-this-case-demonstrates)
+**Contents:** [The moment](#the-moment) · [Problem validation](#problem-validation-published-research) · [Users](#users-and-personas-assumed-to-be-validated) · [Problem statement](#problem-statement) · [User research plan](#user-research-plan) · [Edge cases](#edge-cases-and-acceptance-criteria) · [Prioritization](#opportunities-and-prioritization) · [Version one scope](#version-one-scope) · [Trade-offs](#trade-offs) · [Security](#security-and-data) · [Success metrics](#success-metrics) · [Launch plan](#launch-plan) · [Go-to-market](#go-to-market) · [Workflow](#workflow-before-and-after) · [Impact](#expected-impact-by-persona)
+
+---
+
+## The moment
+
+*An imagined scenario to show the problem:*
+
+**Tuesday, 2:58pm.** It's the hottest day of July. The grid operator calls an event, and an alert email goes to Dana, a grocery store manager.
+
+**3:00–4:30pm.** Dana is on the floor handling a late delivery. She doesn't check her email.
+
+**4:35pm.** She sees the alert. The event is half over. She isn't sure whether turning down the air conditioning would put the produce section at risk, so she does nothing.
+
+**Next month.** A smaller payment arrives with no explanation. She doesn't know why, and she's not sure the program is worth it.
+
+## Problem validation: published research
+
+| Finding | Source |
+|---|---|
+| The U.S. Department of Energy estimates virtual power plants could reach **80–160 GW by 2030**, about **10–20% of peak demand** | [DOE Pathways to Commercial Liftoff: Virtual Power Plants, via APPA](https://www.publicpower.org/periodical/article/doe-report-addresses-integrating-virtual-power-plants-grid) |
+| Reaching that scale could save around **$10 billion a year** in grid costs | Same source |
+
+Virtual power plants only work if enrolled sites actually respond during events, so participation is the whole game. The company, users and figures elsewhere in this case study are hypothetical.
+
+### Assumptions to test
+
+1. Missed alerts are a main reason businesses skip events.
+2. Managers skip events because they're afraid of hurting operations, not because they don't care.
+3. A clear payment breakdown reduces disputes and builds trust in the program.
+4. Managers want to stay in control before they'd accept automation.
 
 ---
 
@@ -32,7 +62,7 @@ There are two problems:
 - Many businesses skip events or barely cut their usage.
 - Afterwards, they often don't understand how their payment was calculated.
 
-## Users
+## Users and personas (assumed, to be validated)
 
 - **Facility manager or store manager on shift:** the person on site who actually turns equipment down during an event.
 - **Finance or business owner:** receives the payment and wants to understand it.
@@ -50,7 +80,7 @@ There are two problems:
 
 Facility managers need a quick, safe way to respond to events, because today alerts are easy to miss and it's unclear what they can turn down without hurting the business, which leads to skipped events and missed payments.
 
-## Validating the problem
+## User research plan
 
 Before building anything, I would confirm both problems are real by talking directly with store and facility managers, focusing on real, recent events:
 
@@ -73,6 +103,20 @@ Before building anything, I would confirm both problems are real by talking dire
 
 **Protected equipment**
 > **Given** equipment marked as protected, **when** an event is called, **then** that equipment is never included in the event plan and keeps running normally.
+
+## Opportunities and prioritization
+
+Scored with **RICE** (Reach × Impact × Confidence ÷ Effort). These are my own estimates for this scenario: reach on a 1–10 scale, impact 1–3, effort in weeks.
+
+| Opportunity | Reach | Impact | Confidence | Effort | RICE |
+|---|---|---|---|---|---|
+| Text and app alert when an event is called | 10 | 3 | 90% | 2 | **13.5** |
+| Checklist of what's safe to turn down | 8 | 2 | 80% | 3 | **4.3** |
+| Clear payment breakdown afterwards | 7 | 2 | 80% | 3 | **3.7** |
+| Live view of power savings during the event | 6 | 1 | 50% | 5 | **0.6** |
+| Automatic control (opt-in) | 5 | 3 | 30% | 10 | **0.5** |
+
+**Reading the scores:** alerts score highest because every other feature depends on the manager seeing the event. The live savings view scores far lower, which is why I swapped it out of version one.
 
 ## Version one scope
 
@@ -152,14 +196,22 @@ flowchart LR
 | During the event | Managers don't know what's safe to turn down, so they skip it or barely cut usage | A checklist shows exactly what to turn down, and protected equipment keeps running |
 | After the event | A confusing payment shows up with no explanation | A clear breakdown shows how the payment was calculated |
 
+## Expected impact by persona
+
+- **Facility or store manager:** sees every event, knows exactly what's safe to turn down, and keeps freezers and customers protected.
+- **Finance or business owner:** understands how every payment was calculated, and sees the program is worth staying in.
+- **Our operations team:** better participation and performance, with fewer payment questions coming into support.
+
 ---
 
 ## What this case demonstrates
 
 | PM skill | Where it shows up |
 |---|---|
-| User and problem definition | [Users](#users), [Problem statement](#problem-statement) |
-| Customer discovery | [Validating the problem](#validating-the-problem) |
+| User and problem definition | [Users](#users-and-personas-assumed-to-be-validated), [Problem statement](#problem-statement) |
+| Problem framing and research | [The moment](#the-moment), [Problem validation](#problem-validation-published-research) |
+| Customer discovery | [User research plan](#user-research-plan) |
+| Prioritization frameworks | [Opportunities and prioritization](#opportunities-and-prioritization) |
 | Requirements | [Edge cases and acceptance criteria](#edge-cases-and-acceptance-criteria) |
 | Prioritization and scoping | [Version one scope](#version-one-scope), [Trade-offs](#trade-offs) |
 | Trust and safety | [Trade-offs](#trade-offs), [Security and data](#security-and-data) |
@@ -168,4 +220,4 @@ flowchart LR
 
 ---
 
-*Concept project created for professional development. All scenarios, users, and figures are hypothetical.*
+*Concept project created for professional development. The scenario, users, and figures are hypothetical; the published research in the problem validation section is real and linked to its sources.*
